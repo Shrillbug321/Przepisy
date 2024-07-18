@@ -1,0 +1,347 @@
+:root
+{
+	--background_color: #32d511;
+	--green_button: #32d511;
+	--lighter_background: #feffea;
+	--border_color: #cecece;
+}
+
+html
+{
+	font-family: DejaVu Sans;
+}
+
+body
+{
+	margin: 0px;
+	background-image: url(bg2.jpg);
+}
+
+a
+{
+	text-decoration: none;
+	color: black;
+	background-color: rgba(21, 96, 6, 0.175);
+}
+
+a:hover
+{
+	background-color: rgba(50, 213, 17, 0.5);
+}
+
+button, [type=submit]
+{
+	border: solid 2px black;
+}
+
+.clear
+{
+	clear: both;
+}
+#site_name
+{
+	margin: 10px;
+	float: left;
+	font-family: DejaVu Sans;
+	font-weight: 500;
+}
+
+#site_header
+{
+	position: sticky;
+	background-color: var(--lighter_background);
+}
+
+#navbar
+{
+	margin: 0;
+}
+
+.navbar_button
+{
+	float: left;
+	display: block;
+	width: 80px;
+	height: 25px;
+	margin: 10px 5px;
+	padding: 6px 8px;
+	background-color: #156006;
+}
+
+.navbar_button > a
+{
+	display: block;
+	width: 80px;
+	height: 25px;
+	padding-top: 5px;
+	color: white;
+	text-align: center;
+	font-weight: 600;
+	//font-size: 14pt;
+}
+
+.navbar_button > ul
+{
+	display: none;
+}
+
+.navbar_button ul
+{
+	list-style-type: none;
+}
+
+.navbar_button:hover > ul
+{
+	display: block;
+	width: 600px;
+	margin-top: 1px;
+	margin-left: -9px;
+	padding: 10px;
+	position: absolute;
+	background-color: var(--lighter_background);
+	font-weight: 600;
+	border: 3px solid var(--border_color);
+	border-top: 0px;
+}
+
+.category_row
+{
+	display: block;
+	width: 600px;
+}
+
+.category_col
+{
+	display: block;
+	width: 200px;
+	float: left;
+	background-color: var(--lighter_background);
+}
+
+.category_col > a:hover
+{
+	//background-color: var(--green_button);
+}
+
+
+#category:hover > ul td
+{
+	vertical-align: middle;
+}
+
+#category:hover > ul td li a
+{
+	display: flex;
+	align-items: center;
+	height: 25px;
+}
+
+#category:hover > ul td li a:hover
+{
+	
+}
+
+#meal:hover > ul
+{
+	height: 160px;
+}
+
+.navbar_menu
+{
+	margin: 4px;
+}
+
+.navbar_menu a
+{
+	color: black;
+	background-color: var(--lighter_background);
+}
+
+#login_button
+{
+	float: right;
+	margin-right: 10%;
+	width: 120px;
+}
+
+#login_button a
+{
+	width: 120px;
+}
+
+#underline
+{
+	display: block;
+	height: 5px;
+	background-color: var(--border_color);
+}
+
+#content > div
+{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	background-color: var(--lighter_background);
+}
+
+#last_added, #highest_rated, #recipe
+{
+	width: 80%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	background-color: var(--lighter_background);
+}
+
+#highest_rated
+{
+	margin-top: -10px;
+	padding-top: 0px;
+}
+
+.header
+{
+	margin: 5px;
+	margin-left: 0px;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.small_header
+{
+	margin: 5px;
+	margin-left: 0px;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.text
+{
+	display: block;
+	margin: 5px;
+	margin-left: 0px;
+	height: 65px;
+	font-weight: 400;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tile
+{
+	//animation: tile_anim 2s ease infinite;
+	transition: 2s;
+	display: block;
+	width: 133px;
+	height: 123px;
+	float: left;
+	margin-right: 32px;
+	margin-bottom: 32px;
+	border: 3px solid var(--border_color);
+	background-image: linear-gradient(180deg, rgba(254,255,234,0) 60%, rgba(208, 208, 208,1) 100%)
+}
+
+ @keyframes tile_anim
+{
+	0%	 {background-image: linear-gradient(180deg, rgba(254,255,234,0) 60%, rgba(208, 208, 208,1) 100%)}
+	100% {background-image: linear-gradient(180deg, rgba(254,255,234,0) 10%, rgba(208, 208, 208,1) 100%)}
+} 
+
+.tile:hover
+{
+	animation: tile_anim 0.25s linear 1;
+	animation-fill-mode: forwards;
+}
+
+.tile > a
+{
+	diplay: block;
+	width: 133px;
+}
+
+.form_message
+{
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.form_message > a
+{
+	display: inline;
+}
+
+.form
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+}
+
+.form input
+{
+	margin: 8px 0px;
+}
+
+.click_here
+{
+	display: inline;
+}
+
+#mark_and_favourite
+{
+	margin: 10px 0px;
+}
+
+#mark_and_favourite *
+{
+	display: inline
+}
+
+#metadatas
+{
+	display: inline;
+}
+
+#info_box
+{
+	border: solid 2px black;
+	float: left;
+}
+
+#info_box p
+{
+	margin: 0px;
+	padding: 15px;
+}
+
+#ingredients_list
+{
+	float: left;
+	margin-left: 20px;
+	border-collapse: collapse;
+}
+
+#ingredients_list td, #ingredients_list th, #ingredients_list_add_recipe td, #ingredients_list_add_recipe th
+{
+	border: solid 2px black;
+	padding: 5px;
+	text-align: center;
+}
+
+#ingredients_list_add_recipe
+{
+	border-collapse: collapse;
+}
+
+#form_with_table
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#form_with_table  *
+{
+	margin: 10px;
+}
