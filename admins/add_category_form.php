@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $common;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php
@@ -9,10 +11,14 @@
 				<table id="category_table">	
 					<th colspan=2> Kategorie </th>
 					<tr> 
-						<td> <input type="text" name="categories[]"> </input> </td>
+						<td> <input type="text" name="categories[]"> </td>
 					</tr></table>
-					<input type="button" id="add_row" onclick="add_row_to_table(\'category_table\')" value="Dodaj wiersz">  </input>
-					<input type="button" id="remove_row" onclick="remove_row_from_table(\'category_table\')" value="Usuń wiersz">  </input>
+					<div>
+					    Wiersz
+                        <input type="button" id="add_row" onclick="addRowToTable(\'category_table\')" value="Dodaj">  
+                        <input type="button" id="remove_row" onclick="removeRowFromTable(\'category_table\')" value="Usuń">
+                    </div>
+					  
 			<input type="submit" value="Dodaj kategorie">
 			</form>
 			</div>

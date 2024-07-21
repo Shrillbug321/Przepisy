@@ -1,4 +1,5 @@
 <?php
+    global $common;
 	require_once('../common/head.php');
 	session_unset();
 	session_destroy();

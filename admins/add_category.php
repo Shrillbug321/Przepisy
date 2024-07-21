@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $connection;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php

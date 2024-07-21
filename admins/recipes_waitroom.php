@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $common, $connection, $admins, $recipes;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php
@@ -11,7 +13,7 @@
 			while ($row = $result->fetch_assoc())
 			{
 				echo '<label> <a href="'.$recipes.'recipe.php?recipe_id='.$row['recipe_id'].'">' .$row['title']. ' </a> 
-				<input type=checkbox name=accepted[] value='.$row['recipe_id'].'> </label> <br> ';
+				<input type=checkbox name=accepted[] value='.$row['recipe_id'].'> </label> <br/> ';
 			}
 			echo '<input type="submit" value="Zaakceptuj przepisy">
 			</form>
@@ -20,4 +22,3 @@
 		require_once($common."footer.php");
 	?>	
 </body>
-</html>

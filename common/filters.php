@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $common, $connection, $admins, $recipes;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php
@@ -7,14 +9,25 @@
 		if (isset($_POST['checked'])) 
 		{
 			$i = 0;
-			foreach($_POST['checked'] as $key)
+			foreach ($_POST['checked'] as $key)
 			{
-				if ($i == 0)
-					$query .= ' WHERE ';
-				else
-					$query .= ' AND ';
-				$query .= $key.' = "'.$_POST[$key].'"';
-				$i++;
+				$query .= $i++ == 0 ? ' WHERE ' : ' AND ';
+                switch ($key)
+				{
+                    case 'title':
+                    case 'user':
+					    $query .= $key.' LIKE "%'.$_POST[$key].'%"';
+                        break;
+                    case 'average_mark':
+                    case 'portions':
+						$query .= $key.' >= "'.$_POST[$key].'"';
+                        break;
+                    case 'prepare_time':
+						$query .= $key.' <= "'.$_POST[$key].'"';
+                        break;
+                    default:
+						$query .= $key.' = "'.$_POST[$key].'"';
+                }
 			}
 		}	
 		echo '<div id="content">
@@ -40,4 +53,3 @@
 		require_once($common."footer.php");
 	?>	
 </body>
-</html>

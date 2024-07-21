@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $common, $connection, $admins, $recipes;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php
@@ -14,7 +16,7 @@
 		echo '<div id="content">
 		<div>
 			<form class="form" name="edit_recipe" method="post" action="edit_recipe_form_step2.php">
-				<label> Nazwa przepisu <input type=text name="title" value="'.$recipe_row['title'].'"> </input> <br>
+				<label> Nazwa przepisu <input type=text name="title" value="'.$recipe_row['title'].'"> <br/>
 				<label> Danie <select name="meal_id">';
 				while ($row = $meal_result->fetch_assoc() )
 				{
@@ -23,7 +25,7 @@
 					else
 						echo '<option value='.$row['meal_id'].'> '.$row['meal'].' </option>';
 				}
-				echo '</select> </label> <br>
+				echo '</select> </label> <br/>
 				<label> Rodzaj <select name="category_id">';
 				while ($row = $categories_result->fetch_assoc() )
 				{
@@ -32,7 +34,7 @@
 					else
 						echo '<option value='.$row['category_id'].'> '.$row['category'].' </option>';
 				}
-				echo '</select> </label> <br>
+				echo '</select> </label> <br/>
 				<label> Poziom trudności <select name="difficulty_id">';
 				while ($row = $difficulty_result->fetch_assoc() )
 				{
@@ -41,11 +43,11 @@
 					else
 						echo '<option value='.$row['difficulty_id'].'> '.$row['difficulty'].' </option>';
 				}
-				echo '</select> </label> <br>
-				<label> Porcji <input type=text name="portions" value="'.$recipe_row['portions'].'"> </input> </label> <br>
-				<label> Czas przygotowania <input type=time name="prepare_time" value="'.$recipe_row['time'].'"> </input> </label>
+				echo '</select> </label> <br/>
+				<label> Porcji <input type=text name="portions" value="'.$recipe_row['portions'].'"> </label> <br/>
+				<label> Czas przygotowania <input type=time name="prepare_time" value="'.$recipe_row['time'].'"> </label>
 			<input type="hidden" name="recipe_id" value="'.$_GET['recipe_id'].'">
-			<input type="submit" value="Przejdź dalej">
+			<input type="submit" value="Edytuj">
 			</form>
 			</div>
 		</div>';

@@ -1,4 +1,6 @@
-<?php require_once('../common/head.php'); 
+<?php
+    global $common, $connection, $recipes;
+    require_once('../common/head.php');
 	require_once('../common/database.php'); ?>
 <body>
 	<?php
@@ -15,4 +17,3 @@
 		require_once($common."footer.php");
 	?>	
 </body>
-</html>
