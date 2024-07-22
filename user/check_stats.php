@@ -30,17 +30,36 @@
                               (SELECT recipe_id FROM recipes_metadatas 
                                 WHERE user_id = '.$user_id.')
                         AND user_id != '.$user_id)->fetch_assoc()['other_average_marks'];
-		echo '<div id="content">
+		echo '
+        <div id="content">
 			<div>
-				<p> Konto utworzono '.$account_created.' </p>
-				<p> Dodano przepisów: '.$user_recipes.' </p>
-				<p> Zaakceptowanych: '.$user_recipes_accepted.' </p>
-				<p> Ulubionych: '.$user_favourites.' </p>
-				<p> Ocenionych: '.$user_marks.' </p>
-				<p> Średnio oceniasz na: '.$user_average_marks.' </p>
-				<p> Inni oceniają Cię na: '.$other_average_marks.' </p>
+				<table> 
+                    <tr>
+                        <td> Konto utworzono </td><td>'.$account_created.'</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; font-weight: 600"> Przepisy </td>
+                    </tr>
+                    <tr>
+                        <td> Dodano </td><td>'.$user_recipes.'</td>
+                    </tr>
+                    <tr>
+                        <td> Zaakceptowano </td><td>'.$user_recipes_accepted.'</td>
+                    </tr>
+                    <tr>
+                        <td> Ulubionych </td><td>'.$user_favourites.'</td>
+                    </tr>
+                    <tr>
+                        <td> Ocenionych </td><td>'.$user_marks.'</td>
+                    </tr>
+                    <tr>
+                        <td> Średnio oceniasz na </td><td>'.$user_average_marks.'</td>
+                    </tr>
+                    <tr>
+                        <td> Inni oceniają Cię na </td><td>'.$other_average_marks.'</td>
+                    </tr>
+                </table>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

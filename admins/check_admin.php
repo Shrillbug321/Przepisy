@@ -3,7 +3,6 @@
 	function check_admin($user_id)
 	{
 		global $connection;
-		$admin_query = 'SELECT * FROM admins WHERE user_id = '.$user_id;
-		return mysqli_num_rows($connection->query($admin_query)) > 0;
+		$query = 'SELECT * FROM admins WHERE user_id = '.$user_id;
+		return mysqli_num_rows($connection->query($query)) > 0;
 	}
-?>

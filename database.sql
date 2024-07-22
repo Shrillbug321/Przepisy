@@ -176,7 +176,7 @@ CREATE VIEW recipes_categories_with_name AS
 	SELECT rc.recipe_id, rc.category_id, c.category FROM recipes_categories rc, categories c 
 	WHERE rc.category_id = c.category_id;
 CREATE VIEW recipe_page AS
-	SELECT r.recipe_id, r.title, r.portions, r.prepare_time, rcwn.category, rmu.add_date, rmu.update_date, rmu.user_name, rmu.user_id, m.meal_id,  m.meal,d.difficulty, afr.average_mark, de.description FROM recipes r, recipes_categories_with_name rcwn, recipes_metadatas_users rmu, meals m, difficulties d, average_for_recipe afr, descriptions de
+	SELECT r.recipe_id, r.title, r.portions, r.prepare_time, r.accepted, rcwn.category, rmu.add_date, rmu.update_date, rmu.user_name, rmu.user_id, m.meal_id,  m.meal,d.difficulty, afr.average_mark, de.description FROM recipes r, recipes_categories_with_name rcwn, recipes_metadatas_users rmu, meals m, difficulties d, average_for_recipe afr, descriptions de
 	WHERE r.recipe_id = rcwn.recipe_id AND r.recipe_id = rmu.recipe_id AND r.meal_id = m.meal_id AND r.difficulty_id = d.difficulty_id AND r.recipe_id = afr.recipe_id AND r.description_id = de.description_id;
 CREATE VIEW recipes_favourites AS
 	SELECT f.user_id, r.recipe_id, r.title FROM favourites f, recipes r 

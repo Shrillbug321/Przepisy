@@ -1,7 +1,7 @@
 :root
 {
-	--background_color: #156006;
-	--green_button: #32d511;
+	--green_primary: #156006;
+	--green_secondary: #32d511;
 	--lighter_background: #feffea;
 	--border_color: #cecece;
 }
@@ -20,14 +20,14 @@ body
 a
 {
 	text-decoration: none;
-	color: var(--background_color);
+	color: var(--green_primary);
 }
 
 /*Inputs and buttons*/
-button, [type=submit], select, [type=button]
+button, [type=button], [type=submit], select
 {
 	border: solid 2px #00000000;
-	background-color: #156006;
+	background-color: var(--green_primary);
 	color: var(--lighter_background);
 	font-weight: 600;
 	font-size: 15px;
@@ -38,9 +38,21 @@ button, [type=submit], select, [type=button]
 	margin-bottom: 10px;
 }
 
-button, [type=submit], select
+button, [type=button], [type=submit], select
 {
 	cursor: pointer;
+}
+
+select:focus-visible, [type=submit]:focus-visible
+{
+	border: solid 2px var(--green_secondary);
+	outline: none;
+	box-shadow: inset 0 0 1px 2px var(--green_secondary);
+}
+
+[type=submit]:focus-visible
+{
+	margin-bottom: 10px;
 }
 
 [type=time]
@@ -48,28 +60,19 @@ button, [type=submit], select
 	cursor: text;
 }
 
-label
-{
-	user-select: none;
-}
-
-label p
-{
-	margin: 10px 0 -22px 20px;
-}
-
 input
 {
 	margin: 6px 0;
-	border: solid 3px green;
+	border: solid 3px var(--green_primary);
 	border-radius: 10px;
 	height: 26px;
+	font-weight: 600;
 }
 
 textarea
 {
 	margin: 6px 0;
-	border: solid 3px green;
+	border: solid 3px var(--green_primary);
 	border-radius: 10px;
 	padding: 10px;
 	width: 600px;
@@ -78,9 +81,9 @@ textarea
 
 textarea:focus-visible
 {
-	border: solid 3px var(--green_button);
+	border: solid 3px var(--green_secondary);
 	outline: none;
-	box-shadow: inset 0 0 1px 2px var(--green_button);
+	box-shadow: inset 0 0 1px 2px var(--green_secondary);
 }
 
 input[type=text],
@@ -101,24 +104,64 @@ input[type=checkbox]
 	transition: 0.15s;
 }
 
+input[type=checkbox]:checked
+{
+
+	border: solid 3px var(--green_secondary);
+	background-color: var(--green_primary);
+}
+
 input[type=button]
 {
 	cursor: pointer;
 }
 
-input[type=checkbox]:checked
-{
-	background-color: #32d511;
+/*Works only on Chromium based browser.
+Firefox must be satisfied default style*/
+input[type=time]::-webkit-datetime-edit-hour-field:focus,
+input[type=time]::-webkit-datetime-edit-minute-field:focus,
+input[type=time]::-webkit-datetime-edit-second-field:focus,
+input[type=time]::-webkit-datetime-edit-ampm-field:focus {
+	background-color: var(--green_primary);
+	color: white;
 }
 
 input:focus-visible
 {
 	margin: 6px 0;
 	outline: none;
-	border: solid 3px var(--green_button);
+	border: solid 3px var(--green_secondary);
 	border-radius: 10px;
-	height: 26px;
-	box-shadow: inset 0 0 1px 2px var(--green_button);
+	box-shadow: inset 0 0 1px 2px var(--green_secondary);
+}
+
+::selection
+{
+	background: var(--green_primary);
+	color: white;
+}
+
+/*Other standard elements*/
+label
+{
+	user-select: none;
+}
+
+label p
+{
+	margin: 10px 0 -22px 20px;
+}
+
+fieldset
+{
+	border: none;
+}
+
+legend
+{
+	margin-bottom: 10px;
+	border-bottom: solid 4px var(--green_primary);
+	user-select: none;
 }
 
 table
@@ -181,7 +224,7 @@ tr td:first-child { border-left-style: solid; }
 	margin: 10px 5px;
 	padding: 6px 8px;
 	border-radius: 10px;
-	background-color: #156006;
+	background-color: var(--green_primary);
 }
 
 .navbar_button > a
@@ -218,6 +261,23 @@ tr td:first-child { border-left-style: solid; }
 	border: 5px solid var(--border_color);
 	border-top: 0;
 	border-radius: 10px;
+}
+
+.navbar_text
+{
+	float: left;
+	display: block;
+	width: 80px;
+	height: 15px;
+	margin: 15px 5px;
+	padding: 6px 8px;
+	font-weight: 600;
+	user-select: none;
+}
+
+.navbar_text ul
+{
+	list-style-type: none;
 }
 
 /*Navbar hover lists*/
@@ -264,6 +324,7 @@ tr td:first-child { border-left-style: solid; }
 	margin-left: -45px;
 	font-weight: 600;
 }
+
 /*Login button*/
 #login_button
 {
@@ -429,12 +490,12 @@ tr td:first-child { border-left-style: solid; }
 
 #favourite
 {
-	color: #156006;
+	color: var(--green_primary);
 }
 
 .icon
 {
-	color: #156006;
+	color: var(--green_primary);
 	font-size: 32px;
 	margin-top: -5px;
 	margin-bottom: -5px;
@@ -471,4 +532,9 @@ tr td:first-child { border-left-style: solid; }
 	border: solid 2px black;
 	padding: 5px;
 	text-align: center;
+}
+
+.label_for_blind
+{
+	visibility: hidden;
 }

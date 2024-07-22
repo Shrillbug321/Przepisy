@@ -15,6 +15,5 @@
 			</form>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

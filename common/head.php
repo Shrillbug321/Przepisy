@@ -7,7 +7,8 @@
 	$recipes = "../recipes/";
 	$admins = "../admins/";
 	
-	echo'<head>
+	echo'
+    <head>
 		<title> Przepisy </title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../common/style.css" type="text/css">

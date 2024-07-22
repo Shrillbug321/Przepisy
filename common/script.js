@@ -3,7 +3,7 @@ function redirect(page)
 	location.href = page;
 }
 
-function addRowToTable(tableName)
+function add_row_to_table(tableName)
 {
 	let table = document.getElementById(tableName);
 	let row = table.lastChild.lastChild;
@@ -11,7 +11,7 @@ function addRowToTable(tableName)
 	table.lastChild.appendChild(clone);
 }
 
-function removeRowFromTable(tableName)
+function remove_row_from_table(tableName)
 {
 	let table = document.getElementById(tableName);
 	if (table.lastChild.childElementCount > 2) 

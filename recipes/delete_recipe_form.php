@@ -14,6 +14,5 @@
 			<button onclick="history.go(-1)"> Nie </button>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

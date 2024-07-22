@@ -16,6 +16,5 @@
 				<button onclick="redirect(\''.$admins.'add_category_form.php\')"> Dodaj kategorie </button>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

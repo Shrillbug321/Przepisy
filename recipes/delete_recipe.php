@@ -9,4 +9,3 @@
     foreach ($queries as $query)
         $connection->query($query);
 	echo '<script type="text/javascript"> history.go(-3) </script>';
-?>

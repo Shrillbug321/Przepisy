@@ -15,6 +15,7 @@
                 'SELECT ingredients_list_id FROM ingredients_lists WHERE recipe_id = '.$index);
 			$query = 'UPDATE descriptions SET description = "'.$_POST['description'].'" WHERE recipe_id = '.$index;
 			$connection->query($query);
+
 			$i = 0;
 			foreach ($_POST['ingredients'] as $key)
 			{
@@ -30,16 +31,19 @@
 				$connection->query($query);
 				$i++;
 			}
+
 			while ($i++ < mysqli_num_rows($ingredients_list_ids))
 			{
 				$ingredients_list_id = $ingredients_list_ids->fetch_assoc()['ingredients_list_id'];
 				$connection->query('DELETE FROM ingredients_lists WHERE ingredients_list_id = '.$ingredients_list_id);
 			}
+
             $queries = ['UPDATE recipes_metadatas SET update_date = "'.date("Y-m-d G:i:s").'" WHERE recipe_id = '.$index,
                 'UPDATE recipes SET title = "'.$_POST['title'].'", meal_id = '.$_POST['meal_id'].', difficulty_id = '.$_POST['difficulty_id'].', portions = '.$_POST['portions'].', prepare_time = "'.$_POST['prepare_time'].'" WHERE recipe_id = '.$index,
                 'UPDATE recipes_categories SET category_id = '.$_POST['category_id'].' WHERE recipe_id = '.$index];
             foreach ($queries as $query)
                 $connection->query($query);
+
 			$connection->commit();
 			$connection->autocommit(true);
 			echo '<script type="text/javascript"> history.go(-3) </script>';
@@ -51,4 +55,3 @@
 			<button onclick="history.go(-2)"> Spróbuj ponownie </button>'.
 			$connection->autocommit(true);
 		}
-?>

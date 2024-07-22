@@ -9,9 +9,8 @@
 		<li class="navbar_button" id="meal">
             <a href="enlisted.php?type=meal"> Danie </a>
 			<ul> 
-			<?php 
-				$query = 'SELECT * FROM meals';
-				$result = $connection->query($query);
+			<?php
+				$result = $connection->query('SELECT * FROM meals');
 				while ($row = $result->fetch_assoc())
 					echo '<li class="navbar_menu"> <a href="enlisted.php?id='.$row['meal_id'].'&type=meal"> '.$row['meal'].' </a> </li>';
 			?>
@@ -20,9 +19,8 @@
 		<li class="navbar_button" id="category">
             <a href="enlisted.php?type=category"> Rodzaj </a>
             <ul>
-			<?php 
-				$query = 'SELECT * FROM categories';
-				$result = $connection->query($query);
+			<?php
+				$result = $connection->query('SELECT * FROM categories');
 				$cells = mysqli_num_rows($result);
 				$actual_cell = 0;
                 while ($actual_cell < $cells)
@@ -43,6 +41,7 @@
 			</ul>
 		</li>
 		<li class="navbar_button"> <a href="../common/filters_form.php"> Szukaj </a> </li>
+
 	<?php
 		if (!isset($_SESSION['user_id']))
 			echo '<li class="navbar_button" id="login_button"> 
@@ -50,13 +49,17 @@
 		else
 		{
 			echo '<li class="navbar_button">
-                    <a href="'.$user.'account.php"> Konto </a> </li>
-			<li class="navbar_button" id="login_button"> 
-			    <a href="'.$user.'logout.php"> Wyloguj się </a> </li>';
+                    <a href="'.$user.'account.php"> Konto </a> </li>';
+
 			$query = 'SELECT * FROM admins WHERE user_id = '.$_SESSION['user_id'];
-			if (mysqli_num_rows( $connection->query($query)) > 0)
+			if (mysqli_num_rows($connection->query($query)) > 0)
 				echo '<li class="navbar_button"> 
-                        <a href="'.$admins.'admin_panel.php"> Panel </a> </li>';
+                        <a href="'.$admins.'admin_panel.php"> Admin </a> </li>';
+
+            echo '<li class="navbar_text">'
+			    .$_SESSION['user_name'].' </li>
+			    <li class="navbar_button" id="login_button"> 
+			    <a href="'.$user.'logout.php"> Wyloguj się </a> </li>';
 		}
 	?>
 	</ul>

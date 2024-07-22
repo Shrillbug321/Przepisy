@@ -15,14 +15,13 @@
 					</tr></table>
 					<div>
 					    Wiersz
-                        <input type="button" id="add_row" onclick="addRowToTable(\'category_table\')" value="Dodaj">  
-                        <input type="button" id="remove_row" onclick="removeRowFromTable(\'category_table\')" value="Usuń">
+                        <input type="button" id="add_row" onclick="add_row_to_table(\'category_table\')" value="Dodaj">  
+                        <input type="button" id="remove_row" onclick="remove_row_from_table(\'category_table\')" value="Usuń">
                     </div>
 					  
 			<input type="submit" value="Dodaj kategorie">
 			</form>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

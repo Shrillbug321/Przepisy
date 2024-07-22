@@ -10,12 +10,13 @@
 		<div id="recipe">
 			<div id="recipe_header">
 			<?php
-                $queries = ['SELECT * FROM recipe_page WHERE recipe_id ='.$_GET['recipe_id'],
-                    'SELECT * FROM recipes_categories_with_name WHERE recipe_id = '.$_GET['recipe_id'],
-                    'SELECT * FROM ingredients_lists_units WHERE recipe_id ='.$_GET['recipe_id']];
-				$recipe_row = $connection->query($queries[0])->fetch_assoc();
-				$categories_result = $connection->query($queries[1]);
-				$ingredients_result = $connection->query($queries[2]);
+				$recipe_row = $connection->query(
+                        'SELECT * FROM recipe_page WHERE recipe_id ='.$_GET['recipe_id'])->fetch_assoc();
+				$categories_result = $connection->query(
+                        'SELECT * FROM recipes_categories_with_name WHERE recipe_id = '.$_GET['recipe_id']);
+				$ingredients_result = $connection->query(
+                        'SELECT * FROM ingredients_lists_units WHERE recipe_id ='.$_GET['recipe_id']);
+
 				echo '<div id="metadata">';
 				while ($categories_row = $categories_result->fetch_assoc())
 					echo '<a href="'.$common.'categories.php?category_id='.$categories_row['category_id'].'"> '
@@ -25,11 +26,11 @@
                     .$recipe_row['user_name'].' </a>
                     <p id="metadatas"> '.$recipe_row['add_date'].' '.$recipe_row['update_date'].' </p> </div>
 				<h2 class="header">'.$recipe_row['title'].' </h2>
+				
 				<div id="mark_and_favourite">';
 				if (isset($_SESSION['user_id']))
 				{
                     if (check_admin($_SESSION['user_id']))
-                    {
                         echo '<div style="margin-bottom: 10px;">
                                 <a class="icon"
                                     href="'.$recipes.'edit_recipe_form.php?recipe_id='.$_GET['recipe_id'].'"
@@ -38,7 +39,7 @@
                                     href="'.$recipes.'delete_recipe_form.php?recipe_id='.$_GET['recipe_id'].'"
                                     title="Usuń przepis"> ✕ </a>
                             </div> <br/>';
-                    }
+
 					$favourites_query = 'SELECT * FROM favourites 
                                             WHERE recipe_id = '.$_GET['recipe_id'].' AND user_id = '.$_SESSION['user_id'];
 					if (mysqli_num_rows($connection->query($favourites_query)) > 0)
@@ -49,6 +50,7 @@
 						echo '<a class="icon"
 						        href="'.$user.'add_to_favourite.php?recipe_id='.$_GET['recipe_id'].'"
                                 title="Dodaj do ulubionych"> ♡ </a>';
+
 					$marks_query = 'SELECT * FROM marks 
                                         WHERE recipe_id = '.$_GET['recipe_id'].' AND user_id = '.$_SESSION['user_id'];
 					$marks_result = $connection->query($marks_query);
@@ -73,10 +75,12 @@
 						</form> <br/>';
 					}
 				}
-				echo '<p> Ocena '.$recipe_row['average_mark'].'</p> </div>
+				echo '<p> Średnia ocena: '.$recipe_row['average_mark'].'</p> </div>
 				<table id="info_box"> 
 					<tr>
-					    <th colspan="2"> <a href="enlisted.php?id='.$recipe_row['meal_id'].'&type=meal"> '.$recipe_row['meal'].' </a></th>
+					    <th colspan="2"> 
+					        <a href="enlisted.php?id='.$recipe_row['meal_id'].'&type=meal"> '.$recipe_row['meal'].' </a>
+					    </th>
                     </tr>
                     <tr>
                         <td>Porcje</td><td>'.$recipe_row['portions'].'</td>

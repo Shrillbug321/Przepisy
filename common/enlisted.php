@@ -8,21 +8,22 @@
 		$query = "";
         $is_filtered = isset($_GET['id']);
         if ($is_filtered)
-            switch ($_GET['type'])
-            {
-                case 'category':
-                    $query = 'SELECT * FROM recipes_for_category WHERE category_id = '.$_GET['id'];
-                    break;
-                case 'meal':
-                    $query = 'SELECT * FROM recipes_for_meal WHERE meal_id = '.$_GET['id'];
-                    break;
-                case 'recipe_by_user':
-                    $query = 'SELECT * FROM recipes_for_user WHERE user_id = '.$_GET['id'];
-                    break;
-            }
+        {
+			switch ($_GET['type']) {
+				case 'category':
+					$query = 'SELECT * FROM recipes_for_category WHERE category_id = ' . $_GET['id'];
+					break;
+				case 'meal':
+					$query = 'SELECT * FROM recipes_for_meal WHERE meal_id = ' . $_GET['id'];
+					break;
+				case 'recipe_by_user':
+					$query = 'SELECT * FROM recipes_for_user WHERE user_id = ' . $_GET['id'];
+					break;
+			}
+		}
         else
-			switch ($_GET['type'])
-			{
+        {
+			switch ($_GET['type']) {
 				case 'category':
 					$query = 'SELECT * FROM categories';
 					break;
@@ -33,6 +34,7 @@
 					$query = 'SELECT * FROM recipes_for_user';
 					break;
 			}
+		}
 		$result = $connection->query($query);
 		$row = $result->fetch_assoc();
 		echo '<div id="content">
@@ -105,6 +107,5 @@
 		echo '<div class="clear"></div>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

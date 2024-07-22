@@ -6,10 +6,8 @@
 <body>
 	<?php
 		require_once($common."navbar.php");
-		$unit_query = 'SELECT unit_id, plural_5pcs FROM units';
-		$unit_result = $connection->query($unit_query);
-		$difficulty_query = 'SELECT * FROM difficulties';
-		$difficulty_result = $connection->query($difficulty_query);
+		$unit_result = $connection->query('SELECT unit_id, plural_5pcs FROM units');
+		$difficulty_result = $connection->query('SELECT * FROM difficulties');
 		echo '<div id="content">
 		<div>
 			<form class="form_with_table" name="add_recipe" method="post" action="add_recipe.php">
@@ -17,20 +15,22 @@
                     <th colspan=3> Lista składników </th>
                     <tr> 
                     <td> <label> Składnik <input type=text name="ingredients[]"> </label> </td> 
-                    <td> <label> Liczba <input type=text name="how_many[]"> </label> </input> </td> 
+                    <td> <label> Liczba <input type=number min="0.01" step="0.01" name="how_many[]"> </label> </input> </td> 
                     <td> <label> Jednostka <select name="units_ids[]">';
                     while ($row = $unit_result->fetch_assoc() )
                         echo '<option value='.$row['unit_id'].'> '.$row['plural_5pcs'].' </option>';
                     echo '</select> </label> </td> </tr></table>
                 Wiersz
-                <input type="button" id="add_row" onclick="addRowToTable(\'ingredients_list_add_recipe\')" value="Dodaj">
-                <input type="button" id="remove_row" onclick="removeRowFromTable(\'ingredients_list_add_recipe\')" value="Usuń"> <br/>
+                <input type="button" id="add_row" onclick="add_row_to_table(\'ingredients_list_add_recipe\')" value="Dodaj">
+                <input type="button" id="remove_row" onclick="remove_row_from_table(\'ingredients_list_add_recipe\')" value="Usuń"> <br/>
+				
 				<label> Opis <br/> <textarea name="description"> </textarea> </label>';
 				if (check_admin($_SESSION['user_id']))
 					echo '<br/> 
                 <label> 
                     <p>Zaakceptuj </p>
                     <input type="checkbox" name="accepted"> </label>';
+
 				echo '<input type=hidden name="title" value="'.$_POST['title'].'">
 				<input type=hidden name="meal_id" value="'.$_POST['meal_id'].'">
 				<input type=hidden name="category_id" value="'.$_POST['category_id'].'">
@@ -41,6 +41,5 @@
 			</form>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>

@@ -5,13 +5,12 @@
 <body>
 	<?php
 		require_once($common."navbar.php");
-		$query = 'SELECT * FROM recipe_page';
+		$query = 'SELECT * FROM recipe_page WHERE accepted = 1';
 		if (isset($_POST['checked'])) 
 		{
-			$i = 0;
 			foreach ($_POST['checked'] as $key)
 			{
-				$query .= $i++ == 0 ? ' WHERE ' : ' AND ';
+				$query .= ' AND ';
                 switch ($key)
 				{
                     case 'title':
@@ -50,6 +49,5 @@
 		echo '<div class="clear"></div>
 			</div>
 		</div>';
-		require_once($common."footer.php");
 	?>	
 </body>
