@@ -1,21 +1,21 @@
 # Przepisy kulinarne
 ## PL
 **Technologie**
-JavaScript, PHP 5.6, MySQL (MariaDB)<br>
+JavaScript, PHP 5.6, MySQL (MariaDB) <br>
 WAVE, narzędzie Dostępność Firefoksa<br>
 
-Strona internetowa dotycząca przepisów kulinarnych. Zawiera m.in. CRUD przepisów czy tworzenie konta.<br>
+Strona internetowa o przepisach kulinarnych. Zawiera m.in. CRUD przepisów czy tworzenie konta.<br>
 Na stronie głównej wyświetlane są przepisy ostatnio dodane oraz te z najwyższą oceną.
-Strona z przepisem posiada takie informacje jak rodzaj posiłku, liczba porcji, czas przygotowania czy listę składników.<br>
+Strona z przepisem ma takie informacje jak rodzaj posiłku, liczba porcji, czas przygotowania czy listę składników.<br>
 Witryna posiada także wyszukiwarkę, która pozwala wyszukiwać po każdej właściwości przepisu.<br>
 Dodawanie przepisu składa się z dwóch etapów:
 1. Podaje się informacje podstawowe: nazwę, danie, rodzaj, poziom trudności, liczbę porcji oraz czas przygotowania.
-2. Podaje się właściwy przepis czyli listę składników (stworzoną na rozbudowującej się tabeli) oraz opis.
+2. Podaje się właściwy przepis, czyli listę składników (stworzoną na rozbudowującej się tabeli) oraz opis.
 
 Istnieją dwa typy kont: użytkownik zwykły oraz administrator.<br>
 * Niezarejestrowany użytkownik może przeglądać i wyszukiwać przepisy oraz założyć konto.<br>
 * Zwykły uzyskuje możliwość oceniania przepisów oraz dodawania ich do ulubionych, dzięki czemu będzie miał je szybko dostępne z zakładki konta.<br>
-  Ponadto może dodać przepis oraz sprawdzić statystyki np. ile dodał i ocenił przepsisów a także na ile średnio oceniają jego przepisy inni użytkownicy.<br>
+  Ponadto może dodać przepis oraz sprawdzić statystyki np. ile dodał i ocenił przepisów, a także średnią ocenę jego przepisów od innych użytkowników.<br>
 * Administrator oprócz tego akceptuje przepisy z poczekalni, dodaje kategorie czy edytuje lub usuwa przepisy.<br>
 
 Ponadto witryna została dostosowana do wytycznych WCAG (dostępność cyfrowa strony). <br>
@@ -25,12 +25,12 @@ Audyt przeprowadzono wtyczką WAVE oraz zakładką „Dostępność” z narzęd
 1. Pobieramy, instalujemy i uruchamiamy pakiet XAMPP
 2. W XAMPP uruchamiamy serwery Apache oraz MySQL
 3. Importujemy bazę z pliku database.sql<br>
-   3.1. Klikamy przycik Admin w wierszu MySQL. Otworzy się phpMyAdmin<br>
+   3.1. Klikamy przycisk Admin w wierszu MySQL. Otworzy się phpMyAdmin<br>
    3.2. W nim z górnej belki naciskamy import<br>
    3.3. W oknie importu wskazujemy plik i naciskamy import
-4. Umieszczamy pliki projektu do folderu htdocs (znajduje się w lokalizacji instalacji XAMPPa)
+4. Umieszczamy pliki projektu do folderu htdocs (znajduje się w lokalizacji instalacji XAMPP-a)
 5. Witryna dostępna jest pod https://localhost/<nazwa-folderu>/sites/index.php <br>
-   (po pobraniu z GitHuba domyślna nazwa-folderu to Przepisy-kulinarne-main)<br>
+   (po pobraniu z GitHuba domyślna nazwa-folderu to Przepisy-kulinarne-main) <br>
 
 Maj-czerwiec 2021 <br>
 Czerwiec 2023 (WCAG)
@@ -83,12 +83,12 @@ Dodawanie przepisu <br>
 Recipe add
 ![img_4.png](readme/img_4.png)
 
-Dodawanie przepisu - lista składników <br>
-Recipe add - ingredients list
+Dodawanie przepisu — lista składników <br>
+Recipe add — ingredients list
 ![img_5.png](readme/img_5.png)
 
-Poczekalnia - akceptacja przepisu <br>
-Waiting room - recipe accept
+Poczekalnia — akceptacja przepisu <br>
+Waiting room — recipe accept
 ![img_7.png](readme/img_7.png)
 
 Strona przepisu <br>
@@ -112,6 +112,6 @@ Strona przepisu z symulowaną deuteranopią (nierozpoznawaniem zieleni) <br>
 Recipe page with simulated deuteranopy (non-recognition of green)
 ![img_11.png](readme/img_11.png)
 
-Dodawanie przepisu - lista składników z nałożoną kolejnością focusu przycisków przy naciskaniu tabulatora<br>
-Recipe add - list of ingredients with overlay buttons focus order when pressing tab key
+Dodawanie przepisu — lista składników z nałożoną kolejnością focusu przycisków przy naciskaniu tabulatora<br>
+Recipe add — list of ingredients with overlay buttons focus order when pressing tab key
 ![img_12.png](readme/img_12.png)
